@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project 2</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/handlebars.js"></script>
+</head>
+<body>
+  <div class="container base">
+
+  <!--<div class="errmessage">
+    blabla
+  </div>
+
+  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      ...uhju
+    </div>
+  </div>
+</div>-->
+
+<div class="col-md-5 col-lg-4">
+  <form class="form-inline">
+    <div class="form-inline form-group form1 ">
+      <label class="sr-only"></label>
+      <input  class="form-control" id="nameU" placeholder="Title...">
+    </div>
+    <input  type="button" class="btn btn-success" id="addU" value="Add Universe">
+  </form>
+</div>
+
+<!--<div class="universeinfo">
+</div>
+
+<script id="templateUni" type="text/x-handlebars-template">
+  {{#each this }}
+    <div class="well " id="{{id}}">
+      <div class="row " >
+        <strong>universe:   </strong> {{name}}<br>
+        <button type="button" class=" btn deleteU btn-danger" id="{{id}}">Delete</button>
+        <button type="button" class="changeU btn btn-info" id="{{id}}">Change</button>
+      </div>
+    </div>
+  {{/each}}
+</script>-->
+
+<div class="col-md-4 col-lg-8">
+  <form class="form-inline">
+    <div class="form-group form2 ">
+      <label class="sr-only"></label>
+      <input  class="form-control" id="nameH" placeholder="Name...">
+      <label class="sr-only"></label>
+      <input  class="form-control" id="genderH" placeholder="Gender...">
+      <label class="sr-only"></label>
+      <input  class="form-control" id="skillsH" placeholder="Skills...">
+    </div>
+    <input  type="button" class="btn btn-success" id="addH" value="Add Hero">
+  </form>
+</div>
+
+<div class=" col-lg-8">
+  <form class="form-inline">
+    <div class="form-group form3 ">
+        <select class="selectuni">
+        </select>
+      </div>
+      <div class="form-group form3">
+        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Heroes...<span class="caret"></span></button>
+        <ul class="dropdown-menu herodrop">
+        </ul>
+    </div>
+    <input  type="button" class="btn btn-success" id="add" value="Add KINO">
+  </form>
+</div>
+
+<!--<div class="col-lg-12">
+  <div class="button-group">
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Universe<span class="caret"></span></button>
+    <ul class="dropdown-menu unidrop">
+    </ul>
+  </div>
+</div>-->
+
+<script id="templateUni" type="text/x-handlebars-template">
+  {{#each this }}
+    <option value="{{id}}">
+      <strong>universe:   </strong> {{name}}<br>
+  </option>
+  {{/each}}
+</script>
+
+<!--<div class="col-lg-12">
+  <div class="button-group">
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Heroes <span class="caret"></span></button>
+    <ul class="dropdown-menu herodrop">
+    </ul>
+  </div>
+</div>-->
+
+<script id="templateHero" type="text/x-handlebars-template">
+  {{#each this }}
+    <li id="{{id}}"><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox"/>
+      <strong>name:   </strong> {{name}}<br>
+      <strong>gender: </strong>{{gender}}<br>
+      <strong>skill: </strong>{{skill}}<br>
+    </a></li>
+  {{/each}}
+</script>
+
+<!--<div class="heroinfo">
+</div>
+
+<script id="templateHero" type="text/x-handlebars-template">
+  {{#each this }}
+    <div class="well" id="{{id}}">
+      <div class="row">
+        <div class="checkbox">
+<label><input type="checkbox" value="">
+        <strong>name:   </strong> {{name}}<br>
+        <strong>gender: </strong>{{gender}}<br>
+        <strong>skill: </strong>{{skill}}<br>
+        <button type="button" class=" btn deleteH btn-danger" id="{{id}}">Delete</button>
+        <button type="button" class="changeH btn btn-info" id="{{id}}">Change</button>
+      </label>
+    </div>
+      </div>
+    </div>
+  {{/each}}
+</script>-->
+
+<script id="templateFormChU" type="text/x-handlebars-template">
+    <div class="well " id="{{id}}">
+      <div class="row " >
+        <strong>universe:   </strong> {{name}}<br>
+        <input  class="form-control" id="nameUCh" value="{{name}}">
+        <button type="button" class=" btn btn-success saveU" id="{{id}}">Save</button>
+      </div>
+    </div>
+</script>
+
+<script id="templateFormChH" type="text/x-handlebars-template">
+    <div class="well " id="{{id}}">
+      <div class="row " >
+        <strong>name:   </strong> {{name}}<br>
+        <input  class="form-control" id="nameHCh" value="{{name}}">
+        <strong>gender:   </strong> {{gender}}<br>
+        <input  class="form-control" id="genderHCh" value="{{gender}}">
+        <strong>skill:   </strong> {{skill}}<br>
+        <input  class="form-control" id="skillHCh" value="{{skill}}">
+        <button type="button" class=" btn btn-success saveH" id="{{id}}">Save</button>
+      </div>
+    </div>
+</script>
+
+</div>
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/Universe.js"></script>
+<script src="js/Hero.js"></script>
+<script src="js/Kino.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

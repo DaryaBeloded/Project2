@@ -1,0 +1,30 @@
+.popup1
+{
+	width:380px;
+	height: 290px;
+	margin-left: 109px;
+}
+.base{
+  margin-top: 120px;
+
+}
+.universeinfo{
+  width:191px;
+  margin-top: 15px;
+}
+.deleteU, .deleteH {
+  margin-top: 5px;
+}
+.changeH, .changeU {
+  margin-top: 5px;
+}
+.saveU, .saveH{
+  margin-top: 10px;
+}
+.row{
+  text-align: center;
+}
+.heroinfo{
+  width:384px;
+  margin-top: 15px;
+}
