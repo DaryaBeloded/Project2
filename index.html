@@ -23,7 +23,7 @@
   </div>
 </div>-->
 
-<div class="col-md-5 col-lg-4">
+<div class="universe">
   <form class="form-inline">
     <div class="form-inline form-group form1 ">
       <label class="sr-only"></label>
@@ -48,7 +48,7 @@
   {{/each}}
 </script>-->
 
-<div class="col-md-4 col-lg-8">
+<div class="hero">
   <form class="form-inline">
     <div class="form-group form2 ">
       <label class="sr-only"></label>
@@ -62,13 +62,13 @@
   </form>
 </div>
 
-<div class=" col-lg-8">
+<div class="kino">
   <form class="form-inline">
     <div class="form-group form3 ">
-        <select class="selectuni">
+        <select class="selectuni form-control">
         </select>
       </div>
-      <div class="form-group form3">
+      <div class="form-group form4">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Heroes...<span class="caret"></span></button>
         <ul class="dropdown-menu herodrop">
         </ul>
@@ -103,14 +103,48 @@
 
 <script id="templateHero" type="text/x-handlebars-template">
   {{#each this }}
-    <li id="{{id}}"><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox"/>
+    <li id="{{id}}"><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox" value="{{id}}"/>
       <strong>name:   </strong> {{name}}<br>
       <strong>gender: </strong>{{gender}}<br>
       <strong>skill: </strong>{{skill}}<br>
-    </a></li>
+    </a>
+    <button type="button" class="changeH btn-info" id="{{id}}">Change</button>
+    </li>
   {{/each}}
 </script>
 
+<div class="kinoinfo">
+</div>
+
+<script id="templateKino" type="text/x-handlebars-template">
+  {{#each this  }}
+    <div class="well" id="{{id}}">
+      <div class="row">
+
+         <strong>{{universe.name}}:<br>{{#each arr}}{{@index}}){{name}}({{skill}});<br>{{/each}}</strong><br>
+
+        <button type="button" class=" btn deleteItem btn-danger" id="{{id}}">Delete</button>
+        <!--<button type="button" class="changeItem btn btn-info" id="{{id}}">Change</button>-->
+
+
+      </div>
+    </div>
+  {{/each}}
+</script>
+
+<script id="templateFormChH" type="text/x-handlebars-template">
+    <div class="well " id="{{id}}">
+      <div class="row " >
+        <strong>name:   </strong> {{name}}<br>
+        <input  class="form-control" id="nameHCh" value="{{name}}">
+        <strong>gender:   </strong> {{gender}}<br>
+        <input  class="form-control" id="genderHCh" value="{{gender}}">
+        <strong>skill:   </strong> {{skill}}<br>
+        <input  class="form-control" id="skillHCh" value="{{skill}}">
+        <button type="button" class=" btn btn-success saveH" id="{{id}}">Save</button>
+      </div>
+    </div>
+</script>
 <!--<div class="heroinfo">
 </div>
 
@@ -132,7 +166,7 @@
   {{/each}}
 </script>-->
 
-<script id="templateFormChU" type="text/x-handlebars-template">
+<!--<script id="templateFormChU" type="text/x-handlebars-template">
     <div class="well " id="{{id}}">
       <div class="row " >
         <strong>universe:   </strong> {{name}}<br>
@@ -140,21 +174,23 @@
         <button type="button" class=" btn btn-success saveU" id="{{id}}">Save</button>
       </div>
     </div>
-</script>
+</script>-->
 
-<script id="templateFormChH" type="text/x-handlebars-template">
+<!--<script id="templateFormChKino" type="text/x-handlebars-template">
     <div class="well " id="{{id}}">
       <div class="row " >
+        <strong>universe:   </strong> {{name}}<br>
+        <input  class="form-control" id="nameUCh" value="{{name}}">
         <strong>name:   </strong> {{name}}<br>
         <input  class="form-control" id="nameHCh" value="{{name}}">
         <strong>gender:   </strong> {{gender}}<br>
         <input  class="form-control" id="genderHCh" value="{{gender}}">
         <strong>skill:   </strong> {{skill}}<br>
         <input  class="form-control" id="skillHCh" value="{{skill}}">
-        <button type="button" class=" btn btn-success saveH" id="{{id}}">Save</button>
+        <button type="button" class=" btn btn-success saveItem" id="{{id}}">Save</button>
       </div>
     </div>
-</script>
+</script>-->
 
 </div>
 <script src="js/jquery-2.2.1.min.js"></script>
@@ -163,5 +199,6 @@
 <script src="js/Hero.js"></script>
 <script src="js/Kino.js"></script>
 <script src="js/main.js"></script>
+
 </body>
 </html>

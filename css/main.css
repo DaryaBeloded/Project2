@@ -16,7 +16,10 @@
   margin-top: 5px;
 }
 .changeH, .changeU {
-  margin-top: 5px;
+  margin: 0 auto;
+	margin-left: 22px;
+	border-radius:4px;
+
 }
 .saveU, .saveH{
   margin-top: 10px;
@@ -27,4 +30,33 @@
 .heroinfo{
   width:384px;
   margin-top: 15px;
+}
+.universe {
+width:30%;
+float:left;
+}
+.hero {
+	width:70%;
+	float:right;
+}
+.kino {
+	width:100%;
+	position:relative;
+	text-align: center;
+	margin-top: 58px;
+	margin-bottom: 27px;
+}
+.selectuni {
+	width: 206px;
+}
+.form4 {
+	position: relative;
+}
+.kinoinfo {
+	width:60%;
+	margin:0 auto;
+}
+p{
+	margin: 0px;
+	font-size: 12px;
 }

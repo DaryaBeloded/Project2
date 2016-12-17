@@ -1,5 +1,6 @@
 let universeList=[];
 let Heroes=[];
+let Items=[];
 let id=0;
 
 //$(".errmessage").hide();
@@ -10,7 +11,7 @@ $(document).ready ( function () {
     });
 });
 
-$(document).ready(function(){
+/*$(document).ready(function(){
   $(document).on("click", ".deleteU", function(){
     removeUniverse(this.id);
   })
@@ -38,7 +39,7 @@ function removeUniverse(id) {
     //$("#"+id).remove();
     //pasteU(universeList);
     pasteU(universeList);
-  }
+  }*/
 
 function addUniverse(){
 
@@ -72,7 +73,7 @@ function pasteU(universeList){
   $('.universeinfo').empty().append( templateUni(universeList) );
 }*/
 
-function changeUniverse(id){
+/*function changeUniverse(id){
   let i;
   for(i=0; i<universeList.length; i++)
   {
@@ -104,7 +105,7 @@ function validU(name) {
     }
     else
         return true;
-}
+}*/
 
   //------------------------------------
 
@@ -113,12 +114,6 @@ function validU(name) {
       addHero();
       });
   });
-
-  $(document).ready(function(){
-    $(document).on("click", ".deleteH", function(){
-      removeHero(this.id);
-    })
-  })
 
   $(document).ready(function(){
     $(document).on("click", ".changeH", function(){
@@ -131,6 +126,14 @@ function validU(name) {
       saveChangeHero(this.id);
     })
   })
+
+/*  $(document).ready(function(){
+    $(document).on("click", ".deleteH", function(){
+      removeHero(this.id);
+    })
+  })
+
+  */
 
 function addHero(){
   let nameH=$("#nameH").val();
@@ -161,7 +164,7 @@ function pasteH(Heroes){
   $('.herodrop').empty().append( templateHero(Heroes) );
 }
 
-function removeHero(id) {
+/*function removeHero(id) {
     for(var i = 0; i < Heroes.length; i++) {
         if(Heroes[i].id == id) {
             Heroes.splice(i,1);
@@ -169,7 +172,7 @@ function removeHero(id) {
         }
     }
     $("#"+id).remove();
-  }
+  }*/
 
   function changeHero(id){
     let i;
@@ -207,8 +210,65 @@ function removeHero(id) {
       });
   });
 
+  $(document).ready(function(){
+      $(document).on("click", ".deleteItem", function(){
+        removeItem(this.id);
+      })
+    })
 
-  function addKino(){
+  /*  $(document).ready(function(){
+      $(document).on("click", ".changeItem", function(){
+        changeItem(this.id);
+      })
+    })
+
+    $(document).ready(function(){
+      $(document).on("click", ".saveItem", function(){
+        saveChangeItem(this.id);
+      })
+    })
+
+    function changeItem(id){
+      let i;
+      for(i=0; i<Items.length; i++)
+      {
+        if(Items[i].id==id)
+          break;
+      }
+      let templateFormChKino = Handlebars.compile( $('#templateFormChKino').html()  );
+      $('#'+id).empty().append( templateFormChKino(Items[i]) );
+    }
+
+    function saveChangeItem(id){
+      let i;
+      let nameUCh=$("#nameUCh").val();
+      let nameHCh=$("#nameHCh").val();
+      let genderHCh=$("#genderHCh").val();
+      let skillHCh=$("#skillHCh").val();
+      for(i=0; i<Items.length; i++)
+      {
+        if(Items[i].id==id)
+          break;
+      }
+      Items[i].universe.name=nameUCh;
+      Items[i].name=nameHCh;
+      Items[i].gender=genderHCh;
+      Items[i].skill=skillHCh;
+      console.log(Items);
+      pasteK(Items);
+    }*/
+
+    function removeItem(id) {
+        for(var i = 0; i < Items.length; i++) {
+            if(Items[i].id == id) {
+                Items.splice(i,1);
+                break;
+            }
+        }
+        $("#"+id).remove();
+      }
+
+function addKino(){
   let un = $(".selectuni").val();
   let arr1 = [];
 
@@ -220,8 +280,30 @@ function removeHero(id) {
 
   let heroes = [];
   for(let i = 0; i < arr1.length; i++)
-      heroes.push(Heroes[arr1[i]])
-  console.log(heroes)
-  let petya = universeList[un];
-  id++;
+      for(let j = 0; j < Heroes.length; j++){
+          if(Heroes[j].id == arr1[i])
+              heroes.push(Heroes[j])
+  }
+
+    console.log(heroes)
+    let petya;
+    for(let j = 0; j < universeList.length; j++) {
+          console.log
+          if(universeList[j].id == un){
+              petya = universeList[j];
+              break;
+          }
+
+      }
+      console.log(petya);
+    let sasha = new Kino(heroes,petya,id);
+      console.log(sasha);
+      Items.push(sasha);
+      pasteK(Items);
+    id++;
+  }
+
+function pasteK(Items){
+  let templateKino = Handlebars.compile( $('#templateKino').html()  );
+  $('.kinoinfo').empty().append( templateKino(Items) );
 }
